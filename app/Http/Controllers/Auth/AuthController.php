@@ -23,7 +23,7 @@ class AuthController extends Controller
             if ($usuarios->idTUsuario  == 1) {//Jugador
                 return redirect()->route('HomeJugador')->with('success', 'Te has logeado exitosamente');
             }else if($usuarios->idTUsuario  == 2){//Entrenador
-                return redirect()->route('HomeAdmin')->with('success', 'Te has logeado exitosamente');
+                return redirect()->to('/administrador/inicio')->with('success', 'Te has logeado exitosamente');
             }
         }else{
             return redirect()->route('home')->with('error', 'Revisa tus credenciales');

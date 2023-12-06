@@ -26,7 +26,20 @@ Route::prefix('auth')->group(function () {
 });
 
 Route::prefix('administrador')->group(function () {
-    Route::get('inicio', [AdminController::class,'index'])->name('HomeAdmin');
+    Route::get('inicio', [AdminController::class,'index'])->name('HomeAdministrador');
+    Route::get('jugadores/view', [AdminController::class,'jugadoresView'])->name('jugadoresView');
+    Route::get('jugador/edit/{id}', [AdminController::class,'jugadoresEditView'])->name('jugadoresEditView');
+    Route::post('jugador/save', [AdminController::class,'jugadoresEditSave'])->name('jugadoresEditSave');
+    Route::get('jugador/create', [AdminController::class,'jugadoresCreate'])->name('jugadoresCreate');
+    Route::post('jugador/create/save', [AdminController::class,'jugadoresCreateSave'])->name('jugadoresCreateSave');
+    Route::get('jugador/delete', [AdminController::class,'jugadoresDelete'])->name('jugadoresDelete');
+
+    Route::get('equipo/view', [AdminController::class,'EquiposView'])->name('EquiposView');
+    Route::get('equipo/edit/{id}', [AdminController::class,'EquiposEditView'])->name('EquiposEditView');
+    Route::post('equipo/save', [AdminController::class,'EquiposEditSave'])->name('EquiposEditSave');
+    Route::get('equipo/create/view', [AdminController::class,'EquiposCreate'])->name('EquiposCreate');
+    Route::post('equipo/create/save', [AdminController::class,'EquiposCreateSave'])->name('EquiposCreateSave');
+    Route::get('equipo/delete', [AdminController::class,'EquiposDelete'])->name('EquiposDelete');
 });
 
 Route::prefix('jugador')->group(function () {
