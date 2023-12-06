@@ -11,7 +11,11 @@ return new class extends Migration
      */
     public function up(): void
     {
-        //
+        Schema::create('tipo_usuarios', function (Blueprint $table) {
+            $table->id('idTUsuario');
+            $table->string('nombre');
+            $table->timestamps(); // Puedes ajustar esto según tus necesidades
+        });
     }
 
     /**
@@ -19,6 +23,6 @@ return new class extends Migration
      */
     public function down(): void
     {
-        //
+        Schema::dropIfExists('tipo_usuarios');
     }
 };
